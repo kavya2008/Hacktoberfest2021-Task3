@@ -20,9 +20,9 @@ void push(int element)
     }
     else
     {
-        st.top--;
+        st.top++;
         printf("\nEnter a Value ");
-        scanf("%s",&ele);
+        scanf("%d",&ele);
         st.arr[st.top]=ele;
     }
 }
@@ -38,7 +38,7 @@ int pop()
     {
         int out;
         out=st.arr[st.top];
-        st.top++;
+        st.top--;
         return out;
     }
 }
@@ -47,7 +47,7 @@ int pop()
 int peek()
 {
     int display;
-    display=st.arr[st.rear];
+    display=st.arr[st.top];
     return display;
 }
 
@@ -57,7 +57,7 @@ void display()
     if((st.top)>=0)
     {
         printf("\n\nElements in the Stack");
-        for(i=st.top;i>=0;i++)
+        for(int i=st.top;i>=0;i--)
         {
             printf("\n%d",st.arr[i]);
         }
@@ -77,6 +77,7 @@ int main()
     printf("\n\t 1.PUSH\n\t 2.POP\n\t 3.PEEK\n\t 4.DISPLAY\n\t 5.EXIT");
 
     do{
+        char choice;
         printf("\nEnter Your Choice  ");
         scanf("%c",&choice);
         switch(choice)
